@@ -1,0 +1,16 @@
+D:\Gitowe projekty\Passenger3\Passenger.Core\bin\Debug\netstandard2.0\Passenger.Core.deps.json
+D:\Gitowe projekty\Passenger3\Passenger.Core\bin\Debug\netstandard2.0\Passenger.Core.dll
+D:\Gitowe projekty\Passenger3\Passenger.Core\bin\Debug\netstandard2.0\Passenger.Core.pdb
+D:\Gitowe projekty\Passenger3\Passenger.Core\obj\Debug\netstandard2.0\Passenger.Core.csproj.CoreCompileInputs.cache
+D:\Gitowe projekty\Passenger3\Passenger.Core\obj\Debug\netstandard2.0\Passenger.Core.AssemblyInfoInputs.cache
+D:\Gitowe projekty\Passenger3\Passenger.Core\obj\Debug\netstandard2.0\Passenger.Core.AssemblyInfo.cs
+D:\Gitowe projekty\Passenger3\Passenger.Core\obj\Debug\netstandard2.0\Passenger.Core.dll
+D:\Gitowe projekty\Passenger3\Passenger.Core\obj\Debug\netstandard2.0\Passenger.Core.pdb
+D:\Gitowe projekty\Passenger\Passenger.Core\bin\Debug\netstandard2.0\Passenger.Core.deps.json
+D:\Gitowe projekty\Passenger\Passenger.Core\bin\Debug\netstandard2.0\Passenger.Core.dll
+D:\Gitowe projekty\Passenger\Passenger.Core\bin\Debug\netstandard2.0\Passenger.Core.pdb
+D:\Gitowe projekty\Passenger\Passenger.Core\obj\Debug\netstandard2.0\Passenger.Core.csproj.CoreCompileInputs.cache
+D:\Gitowe projekty\Passenger\Passenger.Core\obj\Debug\netstandard2.0\Passenger.Core.AssemblyInfoInputs.cache
+D:\Gitowe projekty\Passenger\Passenger.Core\obj\Debug\netstandard2.0\Passenger.Core.AssemblyInfo.cs
+D:\Gitowe projekty\Passenger\Passenger.Core\obj\Debug\netstandard2.0\Passenger.Core.dll
+D:\Gitowe projekty\Passenger\Passenger.Core\obj\Debug\netstandard2.0\Passenger.Core.pdb

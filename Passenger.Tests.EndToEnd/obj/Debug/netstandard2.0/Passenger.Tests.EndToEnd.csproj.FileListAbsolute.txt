@@ -1,0 +1,16 @@
+D:\Gitowe projekty\Passenger3\Passenger.Tests.EndToEnd\bin\Debug\netstandard2.0\Passenger.Tests.EndToEnd.deps.json
+D:\Gitowe projekty\Passenger3\Passenger.Tests.EndToEnd\bin\Debug\netstandard2.0\Passenger.Tests.EndToEnd.dll
+D:\Gitowe projekty\Passenger3\Passenger.Tests.EndToEnd\bin\Debug\netstandard2.0\Passenger.Tests.EndToEnd.pdb
+D:\Gitowe projekty\Passenger3\Passenger.Tests.EndToEnd\obj\Debug\netstandard2.0\Passenger.Tests.EndToEnd.csproj.CoreCompileInputs.cache
+D:\Gitowe projekty\Passenger3\Passenger.Tests.EndToEnd\obj\Debug\netstandard2.0\Passenger.Tests.EndToEnd.AssemblyInfoInputs.cache
+D:\Gitowe projekty\Passenger3\Passenger.Tests.EndToEnd\obj\Debug\netstandard2.0\Passenger.Tests.EndToEnd.AssemblyInfo.cs
+D:\Gitowe projekty\Passenger3\Passenger.Tests.EndToEnd\obj\Debug\netstandard2.0\Passenger.Tests.EndToEnd.dll
+D:\Gitowe projekty\Passenger3\Passenger.Tests.EndToEnd\obj\Debug\netstandard2.0\Passenger.Tests.EndToEnd.pdb
+D:\Gitowe projekty\Passenger\Passenger.Tests.EndToEnd\bin\Debug\netstandard2.0\Passenger.Tests.EndToEnd.deps.json
+D:\Gitowe projekty\Passenger\Passenger.Tests.EndToEnd\bin\Debug\netstandard2.0\Passenger.Tests.EndToEnd.dll
+D:\Gitowe projekty\Passenger\Passenger.Tests.EndToEnd\bin\Debug\netstandard2.0\Passenger.Tests.EndToEnd.pdb
+D:\Gitowe projekty\Passenger\Passenger.Tests.EndToEnd\obj\Debug\netstandard2.0\Passenger.Tests.EndToEnd.csproj.CoreCompileInputs.cache
+D:\Gitowe projekty\Passenger\Passenger.Tests.EndToEnd\obj\Debug\netstandard2.0\Passenger.Tests.EndToEnd.AssemblyInfoInputs.cache
+D:\Gitowe projekty\Passenger\Passenger.Tests.EndToEnd\obj\Debug\netstandard2.0\Passenger.Tests.EndToEnd.AssemblyInfo.cs
+D:\Gitowe projekty\Passenger\Passenger.Tests.EndToEnd\obj\Debug\netstandard2.0\Passenger.Tests.EndToEnd.dll
+D:\Gitowe projekty\Passenger\Passenger.Tests.EndToEnd\obj\Debug\netstandard2.0\Passenger.Tests.EndToEnd.pdb
