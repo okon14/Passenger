@@ -40,7 +40,7 @@
   },
   "libraries": {
     "Microsoft.NETCore.Platforms/1.1.0": {
-      "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "sha512": "s0MV8TwNJ6VFQ4Kx43RmfXV+eUzPLPv/33X98bfwvfrt5qyuWShzFJNxbvrZm6ZRISGnji/lB6INyBdLlUpsrw==",
       "type": "package",
       "path": "microsoft.netcore.platforms/1.1.0",
       "files": [
@@ -193,35 +193,36 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mokonski\\.nuget\\packages\\": {},
+    "C:\\Users\\m.okonski\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Gitowe projekty\\Passenger\\Passenger.Infrastructure\\Passenger.Infrastructure.csproj",
+      "projectUniqueName": "D:\\projekty net\\Passenger\\Passenger\\Passenger.Infrastructure\\Passenger.Infrastructure.csproj",
       "projectName": "Passenger.Infrastructure",
-      "projectPath": "D:\\Gitowe projekty\\Passenger\\Passenger.Infrastructure\\Passenger.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\mokonski\\.nuget\\packages\\",
-      "outputPath": "D:\\Gitowe projekty\\Passenger\\Passenger.Infrastructure\\obj\\",
+      "projectPath": "D:\\projekty net\\Passenger\\Passenger\\Passenger.Infrastructure\\Passenger.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\m.okonski\\.nuget\\packages\\",
+      "outputPath": "D:\\projekty net\\Passenger\\Passenger\\Passenger.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\mokonski\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\m.okonski\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
-        "https://api.nuget.org/v3/index.json": {}
+        "http://10.168.0.203:4000/nuget": {},
+        "https://www.nuget.org/api/v2/": {}
       },
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "D:\\Gitowe projekty\\Passenger\\Passenger.Core\\Passenger.Core.csproj": {
-              "projectPath": "D:\\Gitowe projekty\\Passenger\\Passenger.Core\\Passenger.Core.csproj"
+            "D:\\projekty net\\Passenger\\Passenger\\Passenger.Core\\Passenger.Core.csproj": {
+              "projectPath": "D:\\projekty net\\Passenger\\Passenger\\Passenger.Core\\Passenger.Core.csproj"
             }
           }
         }
