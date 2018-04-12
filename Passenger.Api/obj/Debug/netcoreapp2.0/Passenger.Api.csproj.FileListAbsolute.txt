@@ -41,3 +41,4 @@ D:\projekty net\Passenger\Passenger\Passenger.Api\obj\Debug\netcoreapp2.0\Passen
 D:\projekty net\Passenger\Passenger\Passenger.Api\obj\Debug\netcoreapp2.0\Passenger.Api.csproj.CopyComplete
 D:\projekty net\Passenger\Passenger\Passenger.Api\obj\Debug\netcoreapp2.0\Passenger.Api.dll
 D:\projekty net\Passenger\Passenger\Passenger.Api\obj\Debug\netcoreapp2.0\Passenger.Api.pdb
+D:\projekty net\Passenger\Passenger\Passenger.Api\obj\Debug\netcoreapp2.0\Passenger.Api.csprojResolveAssemblyReference.cache

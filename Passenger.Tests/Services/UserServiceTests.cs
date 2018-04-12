@@ -9,13 +9,7 @@ namespace Passenger.Tests.Services
         [Fact]
         public async Task Test()
         {
-            true.Should().BeTrue();
-            await Task.CompletedTask;
         }
 
-        int Add(int x, int y)
-        {
-            return x + y;
-        }
     }
 }
