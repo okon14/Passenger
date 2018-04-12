@@ -9,7 +9,7 @@ namespace Passenger.Tests.Services
         [Fact]
         public async Task Test()
         {
-            Assert.Equal(4, Add(2, 2));
+            true.Should().BeTrue();
             await Task.CompletedTask;
         }
 
