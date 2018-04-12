@@ -31,17 +31,8 @@ namespace Passenger.Tests.EndToEnd.Controllers
         {
             // Act
             var email = "user1@mail.com";
-            var response = await _client.GetAsync($"/users/{email}");
-            // sprawdzamy czy odpowiedź z serwera jest z rodziny 200 ??
-            response.EnsureSuccessStatusCode();
-            // weź odpowiedź w formie stringa
-            var responseString = await response.Content.ReadAsStringAsync();
-            var user = JsonConvert.DeserializeObject<UserDto>(responseString);
-
+            var user = await GetUserAsync(email);
             user.Email.Should().BeEquivalentTo(email);
-            // Asseercja ogólna
-            //Assert.Equal("Hello World!",
-            //    responseString);
         }
 
         [Fact]
@@ -61,17 +52,21 @@ namespace Passenger.Tests.EndToEnd.Controllers
             // Anonimowy obiekt symulujący użytkownika
             // var request = new {};
             // albo typowany
-            var requst = new CreateUser
+            var request = new CreateUser
             {
                 Email = "test@email.com",
                 Username = "test",
                 Password = "secret"
 
             };
-            var payload = GetPayload(requst);
+            var payload = GetPayload(request);
             var response = await _client.PostAsync("users",payload);
             response.StatusCode.Should().BeEquivalentTo(HttpStatusCode.Created);
-            response.Headers.Location.ToString().Should().BeEquivalentTo($"user/{requst.Email}");
+            response.Headers.Location.ToString().Should().BeEquivalentTo($"user/{request.Email}");
+
+            // sprawdzamy czy użytkownik, rzeczywiście istnieje
+            var user = await GetUserAsync(request.Email);
+            user.Email.Should().BeEquivalentTo(request.Email);
         }
 
         private async Task<UserDto> GetUserAsync(string email)
