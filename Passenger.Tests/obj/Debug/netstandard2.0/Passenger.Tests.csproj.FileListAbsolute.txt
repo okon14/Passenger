@@ -22,10 +22,6 @@ D:\Gitowe projekty\Passenger\Passenger.Tests\obj\Debug\netstandard2.0\Passenger.
 D:\Gitowe projekty\Passenger\Passenger.Tests\obj\Debug\netstandard2.0\Passenger.Tests.AssemblyInfo.cs
 D:\Gitowe projekty\Passenger\Passenger.Tests\obj\Debug\netstandard2.0\Passenger.Tests.dll
 D:\Gitowe projekty\Passenger\Passenger.Tests\obj\Debug\netstandard2.0\Passenger.Tests.pdb
-D:\projekty net\Passenger\Passenger\Passenger.Tests\bin\Debug\netstandard2.0\xunit.runner.visualstudio.testadapter.dll
-D:\projekty net\Passenger\Passenger\Passenger.Tests\bin\Debug\netstandard2.0\xunit.runner.reporters.net452.dll
-D:\projekty net\Passenger\Passenger\Passenger.Tests\bin\Debug\netstandard2.0\xunit.runner.utility.net452.dll
-D:\projekty net\Passenger\Passenger\Passenger.Tests\bin\Debug\netstandard2.0\xunit.abstractions.dll
 D:\projekty net\Passenger\Passenger\Passenger.Tests\bin\Debug\netstandard2.0\Passenger.Tests.deps.json
 D:\projekty net\Passenger\Passenger\Passenger.Tests\bin\Debug\netstandard2.0\Passenger.Tests.dll
 D:\projekty net\Passenger\Passenger\Passenger.Tests\bin\Debug\netstandard2.0\Passenger.Tests.pdb

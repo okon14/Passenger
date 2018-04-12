@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "bc87e04428d36a7b34055e4600cbc81650384b18"
+    "signature": "ec10b023b96bfe550cf85fa28591803c6b37dc51"
   },
   "compilationOptions": {},
   "targets": {
@@ -14,8 +14,7 @@
           "NETStandard.Library": "2.0.1",
           "Passenger.Core": "1.0.0",
           "Passenger.Infrastructure": "1.0.0",
-          "xunit": "2.3.1",
-          "xunit.runner.visualstudio": "2.3.1"
+          "xunit": "2.3.1"
         },
         "runtime": {
           "Passenger.Tests.dll": {}
@@ -648,7 +647,6 @@
           "lib/netstandard1.1/xunit.execution.dotnet.dll": {}
         }
       },
-      "xunit.runner.visualstudio/2.3.1": {},
       "Passenger.Core/1.0.0": {
         "runtime": {
           "Passenger.Core.dll": {}
@@ -1042,13 +1040,6 @@
       "sha512": "sha512-i8xrHfKC5dyBWQ7I15FePzm0m8KNToBsTleCCQbOQuXRPZIvupd4nnfaCPeJuKHHe7yJ8JGtWxjIgw0ow/cMhg==",
       "path": "xunit.extensibility.execution/2.3.1",
       "hashPath": "xunit.extensibility.execution.2.3.1.nupkg.sha512"
-    },
-    "xunit.runner.visualstudio/2.3.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-B+RtW4dyBquEyjSAFyV5RMifaOZOirDwlzcIq2DNVGo1gzJS8PAPu5S+2y1n6ZgEMWbpqJf9TkZ55+X6FLdy3A==",
-      "path": "xunit.runner.visualstudio/2.3.1",
-      "hashPath": "xunit.runner.visualstudio.2.3.1.nupkg.sha512"
     },
     "Passenger.Core/1.0.0": {
       "type": "project",

@@ -4727,7 +4727,7 @@
       },
       "Passenger.Core/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
+        "framework": ".NETCoreApp,Version=v2.0",
         "compile": {
           "bin/placeholder/Passenger.Core.dll": {}
         },
@@ -4737,7 +4737,7 @@
       },
       "Passenger.Infrastructure/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
+        "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
           "AutoMapper": "6.2.2",
           "Newtonsoft.Json": "11.0.2",
@@ -12560,12 +12560,14 @@
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\m.okonski\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\m.okonski\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "http://10.168.0.203:4000/nuget": {},
         "https://www.nuget.org/api/v2/": {}
       },
