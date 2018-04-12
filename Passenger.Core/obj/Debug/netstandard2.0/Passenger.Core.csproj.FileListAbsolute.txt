@@ -14,3 +14,11 @@ D:\Gitowe projekty\Passenger\Passenger.Core\obj\Debug\netstandard2.0\Passenger.C
 D:\Gitowe projekty\Passenger\Passenger.Core\obj\Debug\netstandard2.0\Passenger.Core.AssemblyInfo.cs
 D:\Gitowe projekty\Passenger\Passenger.Core\obj\Debug\netstandard2.0\Passenger.Core.dll
 D:\Gitowe projekty\Passenger\Passenger.Core\obj\Debug\netstandard2.0\Passenger.Core.pdb
+D:\projekty net\Passenger\Passenger\Passenger.Core\bin\Debug\netstandard2.0\Passenger.Core.deps.json
+D:\projekty net\Passenger\Passenger\Passenger.Core\bin\Debug\netstandard2.0\Passenger.Core.dll
+D:\projekty net\Passenger\Passenger\Passenger.Core\bin\Debug\netstandard2.0\Passenger.Core.pdb
+D:\projekty net\Passenger\Passenger\Passenger.Core\obj\Debug\netstandard2.0\Passenger.Core.csproj.CoreCompileInputs.cache
+D:\projekty net\Passenger\Passenger\Passenger.Core\obj\Debug\netstandard2.0\Passenger.Core.AssemblyInfoInputs.cache
+D:\projekty net\Passenger\Passenger\Passenger.Core\obj\Debug\netstandard2.0\Passenger.Core.AssemblyInfo.cs
+D:\projekty net\Passenger\Passenger\Passenger.Core\obj\Debug\netstandard2.0\Passenger.Core.dll
+D:\projekty net\Passenger\Passenger\Passenger.Core\obj\Debug\netstandard2.0\Passenger.Core.pdb

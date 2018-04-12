@@ -18,3 +18,14 @@ D:\Gitowe projekty\Passenger\Passenger.Infrastructure\obj\Debug\netstandard2.0\P
 D:\Gitowe projekty\Passenger\Passenger.Infrastructure\obj\Debug\netstandard2.0\Passenger.Infrastructure.AssemblyInfo.cs
 D:\Gitowe projekty\Passenger\Passenger.Infrastructure\obj\Debug\netstandard2.0\Passenger.Infrastructure.dll
 D:\Gitowe projekty\Passenger\Passenger.Infrastructure\obj\Debug\netstandard2.0\Passenger.Infrastructure.pdb
+D:\projekty net\Passenger\Passenger\Passenger.Infrastructure\bin\Debug\netstandard2.0\Passenger.Infrastructure.deps.json
+D:\projekty net\Passenger\Passenger\Passenger.Infrastructure\bin\Debug\netstandard2.0\Passenger.Infrastructure.dll
+D:\projekty net\Passenger\Passenger\Passenger.Infrastructure\bin\Debug\netstandard2.0\Passenger.Infrastructure.pdb
+D:\projekty net\Passenger\Passenger\Passenger.Infrastructure\bin\Debug\netstandard2.0\Passenger.Core.dll
+D:\projekty net\Passenger\Passenger\Passenger.Infrastructure\bin\Debug\netstandard2.0\Passenger.Core.pdb
+D:\projekty net\Passenger\Passenger\Passenger.Infrastructure\obj\Debug\netstandard2.0\Passenger.Infrastructure.csproj.CoreCompileInputs.cache
+D:\projekty net\Passenger\Passenger\Passenger.Infrastructure\obj\Debug\netstandard2.0\Passenger.Infrastructure.AssemblyInfoInputs.cache
+D:\projekty net\Passenger\Passenger\Passenger.Infrastructure\obj\Debug\netstandard2.0\Passenger.Infrastructure.AssemblyInfo.cs
+D:\projekty net\Passenger\Passenger\Passenger.Infrastructure\obj\Debug\netstandard2.0\Passenger.Infrastructure.csproj.CopyComplete
+D:\projekty net\Passenger\Passenger\Passenger.Infrastructure\obj\Debug\netstandard2.0\Passenger.Infrastructure.dll
+D:\projekty net\Passenger\Passenger\Passenger.Infrastructure\obj\Debug\netstandard2.0\Passenger.Infrastructure.pdb
