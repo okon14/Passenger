@@ -14,6 +14,7 @@ using Passenger.Core.Repositories;
 using Passenger.Infrastructure.Mappers;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Passenger.Infrastructure.IoC.Modules;
 
 namespace Passenger.Api
 {
@@ -38,6 +39,7 @@ namespace Passenger.Api
             // Implementacja Autofac'a (IoC) dependency injection
             var builder = new ContainerBuilder();
             builder.Populate(services);
+            builder.RegisterModule<CommandModule>();
             ApplicationContainer = builder.Build();
 
             return new AutofacServiceProvider(ApplicationContainer);
