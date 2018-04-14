@@ -1,15 +1,9 @@
-using System.Net.Http;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.TestHost;
-using Passenger.Api;
 using Xunit;
 using Newtonsoft.Json;
 using Passenger.Infrastructure.DTO;
 using FluentAssertions;
 using System.Net;
-using System.Text;
-using Passenger.Core.Domain;
 using Passenger.Infrastructure.Commands.Users;
 
 namespace Passenger.Tests.EndToEnd.Controllers

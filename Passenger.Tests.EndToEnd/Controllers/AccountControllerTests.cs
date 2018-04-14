@@ -1,12 +1,6 @@
 using System.Net;
-using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.TestHost;
-using Newtonsoft.Json;
-using Passenger.Api;
 using Passenger.Infrastructure.Commands.Users;
 using Xunit;
 
