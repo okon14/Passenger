@@ -1,7 +1,17 @@
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Passenger.Core.Domain;
+
 namespace Passenger.Core.Repositories
 {
-    public class IDriverRepository : IRepository
+    public interface IDriverRepository : IRepository
     {
-        // Class to implement on my own
+        // interface to implement on my own
+        Task<Driver> GetAsync(Guid userId);
+        Task<IEnumerable<Driver>> GetAllAsync();
+        Task AddAsync(Driver driver);
+        Task UpdateAsync(Driver driver);
+        Task RemoveAsync(Guid id);
     }
 }
