@@ -20,13 +20,25 @@ namespace Passenger.Api
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
+        public IContainer ApplicationContainer { get; private set; } // trzyma konfigurację naszej aplikacji, jakimi klasami implementować nasze interfejsy
+
+        /* //Oryginalna wersja konstrukortora 
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-        }
+        } */
 
-        public IConfiguration Configuration { get; }
-        public IContainer ApplicationContainer { get; private set; } // trzyma konfigurację naszej aplikacji, jakimi klasami implementować nasze interfejsy
+        // Kostruktor wg. Piotra Gankiewicza
+        public Startup(IHostingEnvironment env)
+        {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                .AddEnvironmentVariables();
+            Configuration = builder.Build();
+        }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
@@ -40,7 +52,7 @@ namespace Passenger.Api
             var builder = new ContainerBuilder();
             builder.Populate(services);
             builder.RegisterModule<CommandModule>();
-            builder.RegisterModule(new SettingsModule(Configuration));
+            builder.RegisterModule(new SettingsModule(Configuration)); // róznica między tym powyższym CommandModule a tym wpisem jest taka, ze wyżej nie potrzebowaliśmy przekazywać parametru do klasy
             ApplicationContainer = builder.Build();
 
             return new AutofacServiceProvider(ApplicationContainer);
