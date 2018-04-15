@@ -20,7 +20,7 @@ namespace Passenger.Api.Controllers
         public async Task<IActionResult> Post([FromBody]CreateDriver command)
         {
             await CommandDispatcher.DispatchAsync(command);
-            //Location: drivers/UserID
+            //Location: drivers/driverID
             return Created($"drivers/{command.UserId}",new object());
         }
 
