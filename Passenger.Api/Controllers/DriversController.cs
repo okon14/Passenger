@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Passenger.Infrastructure.Commands;
@@ -14,6 +15,19 @@ namespace Passenger.Api.Controllers
             ICommandDispatcher commandDispatcher) : base(commandDispatcher)
         {
             _driverService = driverService;
+        }
+
+        // GET drivers/{userId}
+        [HttpGet("{userId}")]
+        public async Task<IActionResult> Get(string userId)
+        {
+            var user = await _driverService.GetAsync(Guid.Parse(userId));
+            if(user == null)
+            {
+                return NotFound();
+            }
+
+            return Json(user);
         }
         
         [HttpPost("")]

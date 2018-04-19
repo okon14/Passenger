@@ -20,7 +20,7 @@ namespace Passenger.Infrastructure.Repositories
             => await Task.FromResult(_drivers);
 
         public async Task<Driver> GetAsync(Guid userId)
-           => await Task.FromResult( _drivers.SingleOrDefault(x => x.Id == userId) );
+           => await Task.FromResult( _drivers.SingleOrDefault(x => x.UserId == userId) );
 
         public async Task RemoveAsync(Guid id)
         {

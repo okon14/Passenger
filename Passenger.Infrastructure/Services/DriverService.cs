@@ -24,7 +24,7 @@ namespace Passenger.Infrastructure.Services
 
         public async Task RegisterAsync(Guid userId, string vehicleBrand, string vehicleName, int vehicleSeats)
         {
-            var driver = GetAsync(userId);
+            var driver = await GetAsync(userId);
             if(driver != null)
             {
                 throw new InvalidOperationException($"Driver already exists for user: '{userId}'.");
