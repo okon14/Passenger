@@ -15,6 +15,7 @@ using Passenger.Infrastructure.Mappers;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Passenger.Infrastructure.IoC;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace Passenger.Api
 {
@@ -54,6 +55,17 @@ namespace Passenger.Api
             return new AutofacServiceProvider(ApplicationContainer);
         }
 
+        // JWT configuration
+        private void AuthenticationSetup(IServiceCollection services)
+        {
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                    .AddJwtBearer(options => 
+                    {
+                        options.Audience = "http://localhost:5001/";
+                        options.Authority = "http://localhost:5000/";
+                    });
+        }
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env,
             ILoggerFactory loggerFactory, IApplicationLifetime appLifetime)
@@ -65,6 +77,8 @@ namespace Passenger.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseAuthentication();
 
             app.UseMvc();
 

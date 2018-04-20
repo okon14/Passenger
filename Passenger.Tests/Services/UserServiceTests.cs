@@ -15,9 +15,10 @@ namespace Passenger.Tests.Services
         public async Task register_async_should_invoke_add_async_on_repository()
         { 
             var userRepositoryMock = new Mock<IUserRepository>();
+            var encrypterMock = new Mock<IEncrypter>();
             var mapperMock = new Mock<IMapper>();
 
-            var userService = new UserService(userRepositoryMock.Object,mapperMock.Object);  
+            var userService = new UserService(userRepositoryMock.Object, encrypterMock.Object, mapperMock.Object);  
             await userService.RegisterAsync("user@mail.com", "user", "secret");
 
             // weryfikacja, że metoda AddAsync dla danego dowolnego użytkownika, została wywołana dokładnie 1x

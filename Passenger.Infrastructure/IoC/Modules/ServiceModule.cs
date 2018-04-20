@@ -20,6 +20,11 @@ namespace Passenger.Infrastructure.IoC.Modules
                    .AsImplementedInterfaces()
                    .InstancePerLifetimeScope();
 
+           // rejestrujemy usługę uwierzytelniania
+           builder.RegisterType<Encrypter>()
+                  .As<IEncrypter>()
+                  .SingleInstance();           
+
         }
         
     }
