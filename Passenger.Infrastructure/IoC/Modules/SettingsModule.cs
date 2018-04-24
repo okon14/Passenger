@@ -18,6 +18,8 @@ namespace Passenger.Infrastructure.IoC.Modules
             // Ustawiamy co chcemy zaejestrować
             builder.RegisterInstance(_configuration.GetSettings<GeneralSettings>())
                    .SingleInstance();
+            builder.RegisterInstance(_configuration.GetSettings<JwtSettings>())
+                   .SingleInstance();
         }
     }
 }

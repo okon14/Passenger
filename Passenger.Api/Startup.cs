@@ -16,6 +16,10 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Passenger.Infrastructure.IoC;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Passenger.Infrastructure.Settings;
 
 namespace Passenger.Api
 {
@@ -44,6 +48,7 @@ namespace Passenger.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            AuthenticationSetup(services);
             services.AddMvc();
 
             // Implementacja Autofac'a (IoC) dependency injection
@@ -58,12 +63,35 @@ namespace Passenger.Api
         // JWT configuration
         private void AuthenticationSetup(IServiceCollection services)
         {
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                    .AddJwtBearer(options => 
-                    {
-                        options.Audience = "http://localhost:5001/";
-                        options.Authority = "http://localhost:5000/";
-                    });
+            //JWT https://stackoverflow.com/questions/45686477/jwt-on-net-core-2-0
+            services.AddAuthorization(options =>
+                {
+                    options.DefaultPolicy = new AuthorizationPolicyBuilder(JwtBearerDefaults.AuthenticationScheme)
+                        .RequireAuthenticatedUser()
+                        .Build();
+                }
+            );
+            services.AddAuthentication(o =>
+                {
+                    o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    o.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                }
+            );
+            
+            var jwtSettings = new JwtSettings()
+            {
+                // nie wiem czy tego nie załatwia SettingExtension w SettingsModule ???
+                Key = Configuration.GetSection("jwt:key").Value,
+                ExpiryMinutes = Int32.Parse(Configuration.GetSection("jwt:expiryMinutes").Value)
+            };
+           
+            var signigKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.Key));
+            var tokenValidationParameters = new TokenValidationParameters
+            {
+                ValidIssuer = "http://http://localhost:64691/", //tylko ta aplikacja może generować token
+                ValidateAudience = false, //zakładamy, że tokemty są generowane tylko dla domeny  pomijamy = false
+                IssuerSigningKey = signigKey // w jaki spsosób nasz klucz jest tworzony - pobierane z settings
+            };
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -78,8 +106,7 @@ namespace Passenger.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseAuthentication();
-
+            app.UseAuthentication(); //JWT ale nie wiem czy to musi być 
             app.UseMvc();
 
             // Jeżeli aplikacja się zatrzyma to wywołaj metodę Register i wywołaj na naszym kontenerze Dispose aby wyczyścić nieużytki
