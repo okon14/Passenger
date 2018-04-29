@@ -4,6 +4,6 @@ namespace Passenger.Infrastructure.DTO
     {
         // trzyma dane naszego tokena
         public string Token { get; set; } 
-        public long Expiry { get; set; }
+        public long Expires { get; set; }
     }
 }

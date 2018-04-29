@@ -50,6 +50,11 @@ namespace Passenger.Api
         {
             AuthenticationSetup(services);
             services.AddMvc();
+            //ograniczenie dostępu nie tylko poprzez uwirzytelnienie, ale poprzez spełnienie dodatkowych wymagań - konfiguracja polisy
+            /*services.AddAuthorization(options =>
+            {
+                options.AddPolicy("admin", p => p.RequireRole("admin"));
+            });*/
 
             // Implementacja Autofac'a (IoC) dependency injection
             var builder = new ContainerBuilder();
@@ -66,6 +71,8 @@ namespace Passenger.Api
             //JWT https://stackoverflow.com/questions/45686477/jwt-on-net-core-2-0
             services.AddAuthorization(options =>
                 {
+                    //ograniczenie dostępu nie tylko poprzez uwirzytelnienie, ale poprzez spełnienie dodatkowych wymagań - konfiguracja polisy
+                    options.AddPolicy("admin", p => p.RequireRole("admin"));     
                     options.DefaultPolicy = new AuthorizationPolicyBuilder(JwtBearerDefaults.AuthenticationScheme)
                         .RequireAuthenticatedUser()
                         .Build();
@@ -82,16 +89,28 @@ namespace Passenger.Api
             {
                 // nie wiem czy tego nie załatwia SettingExtension w SettingsModule ???
                 Key = Configuration.GetSection("jwt:key").Value,
+                Issuer = Configuration.GetSection("jwt:issuer").Value,
                 ExpiryMinutes = Int32.Parse(Configuration.GetSection("jwt:expiryMinutes").Value)
             };
            
             var signigKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.Key));
             var tokenValidationParameters = new TokenValidationParameters
             {
-                ValidIssuer = "http://http://localhost:64691/", //tylko ta aplikacja może generować token
+                ValidIssuer = jwtSettings.Issuer, //tylko ta aplikacja może generować token
                 ValidateAudience = false, //zakładamy, że tokemty są generowane tylko dla domeny  pomijamy = false
                 IssuerSigningKey = signigKey // w jaki spsosób nasz klucz jest tworzony - pobierane z settings
             };
+
+            //fragment konfigurracji od piotra mieloszyńskiego
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.ClaimsIssuer = jwtSettings.Issuer;
+                options.TokenValidationParameters = tokenValidationParameters;
+                options.SaveToken = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -106,7 +125,7 @@ namespace Passenger.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseAuthentication(); //JWT ale nie wiem czy to musi być 
+            app.UseAuthentication(); //JWT - otrzebne bo bez tego nie działało mi uwierzytelnianie na podstawie polis i roli
             app.UseMvc();
 
             // Jeżeli aplikacja się zatrzyma to wywołaj metodę Register i wywołaj na naszym kontenerze Dispose aby wyczyścić nieużytki
