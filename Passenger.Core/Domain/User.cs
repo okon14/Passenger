@@ -6,6 +6,7 @@ namespace Passenger.Core.Domain
     {
         public Guid Id { get; protected set; }
         public string Email { get; protected set; }
+        public string Role { get; protected set; }
         public string Password { get; protected set; }
         public string Salt { get; protected set; }
         public string UserName { get; protected set; }
@@ -25,6 +26,7 @@ namespace Passenger.Core.Domain
             Password = password;
             Salt = salt;
             CreatedAt = DateTime.UtcNow;
+            Role = "admin";
         }
     }
 }
