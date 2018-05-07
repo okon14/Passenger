@@ -126,6 +126,15 @@ namespace Passenger.Api
                 app.UseDeveloperExceptionPage();
             }
 
+            //inicjalizacja wtępna repozytorium
+            var generalSettings = app.ApplicationServices.GetService<GeneralSettings>();
+            if(generalSettings.SeedData)
+            {
+                // popbranie z kontenera naszej klasy inicjalizującej
+                var dataInitializer = app.ApplicationServices.GetService<IDataInitilizer>();
+                dataInitializer.SeedAync();
+            }
+
             app.UseAuthentication(); //JWT - otrzebne bo bez tego nie działało mi uwierzytelnianie na podstawie polis i roli
             app.UseMvc();
 

@@ -10,11 +10,12 @@ namespace Passenger.Infrastructure.Repositories
     public class InMemoryUserRepository : IUserRepository
     {
         private static ISet<User> _users = new HashSet<User>()
+        //Inicjowanie API będzie zastąpione dedykowanym serwisem
         {
-            new User("user1@mail.com", "user1", "password", "salt"),
-            new User("user2@mail.com", "user2", "password", "salt"),
-            new User("user3@mail.com", "user3", "password", "salt"),
-            new User("user4@mail.com", "user4", "password", "salt")
+            new User(Guid.NewGuid(), "user1@mail.com", "user1", "password", "salt", "user"),
+            new User(Guid.NewGuid(), "user2@mail.com", "user2", "password", "salt", "user"),
+            new User(Guid.NewGuid(), "user3@mail.com", "user3", "password", "salt", "user"),
+            new User(Guid.NewGuid(), "user4@mail.com", "user4", "password", "salt", "user")
         };
 
         public async Task<User> GetAsync(Guid id)

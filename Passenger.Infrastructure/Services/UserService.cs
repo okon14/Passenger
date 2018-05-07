@@ -41,7 +41,7 @@ namespace Passenger.Infrastructure.Services
             throw new Exception("Invalid credentials");
         }
 
-        public async Task RegisterAsync(string email, string username, string password)
+        public async Task RegisterAsync(Guid userId, string email, string username, string password, string role)
         {
             var user = await _userRepository.GetAsync(email);
             if(user != null)
@@ -51,7 +51,7 @@ namespace Passenger.Infrastructure.Services
 
             var salt = _encrypter.GetSalt(password);
             var hash = _encrypter.GetHash(password, salt);
-            user = new User(email, username, hash, salt);  // zapisanie użytkownia z bezpiecznym hasłem
+            user = new User(userId, email, username, hash, salt, role);  // zapisanie użytkownia z bezpiecznym hasłem
             await _userRepository.AddAsync(user);
         }
     }

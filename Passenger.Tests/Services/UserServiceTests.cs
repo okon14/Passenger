@@ -6,6 +6,7 @@ using Passenger.Core.Repositories;
 using Passenger.Infrastructure.Services;
 using AutoMapper;
 using Passenger.Core.Domain;
+using System;
 
 namespace Passenger.Tests.Services
 {
@@ -19,7 +20,7 @@ namespace Passenger.Tests.Services
             var mapperMock = new Mock<IMapper>();
 
             var userService = new UserService(userRepositoryMock.Object, encrypterMock.Object, mapperMock.Object);  
-            await userService.RegisterAsync("user@mail.com", "user", "secret");
+            await userService.RegisterAsync(Guid.NewGuid(), "user@mail.com", "user", "secret", "user");
 
             // weryfikacja, że metoda AddAsync dla danego dowolnego użytkownika, została wywołana dokładnie 1x
             userRepositoryMock.Verify(x => x.AddAsync(It.IsAny<User>()), Times.Once); 
