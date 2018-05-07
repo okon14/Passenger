@@ -8,6 +8,11 @@
     <VersionPrefix>1.0.0</VersionPrefix>
   </PropertyGroup>
 
+  <!-- kopiowanie ustawień z testowanego API -->
+  <ItemGroup>
+    <Content Include="appsettings.json" CopyToOutputDirectory="PreserveNewest"/>
+  </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Passenger.Api\Passenger.Api.csproj" Version="1.0.0" />
     <ProjectReference Include="..\Passenger.Infrastructure\Passenger.Infrastructure.csproj" Version="1.0.0" />
