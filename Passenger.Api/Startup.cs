@@ -51,10 +51,11 @@ namespace Passenger.Api
             AuthenticationSetup(services);
             services.AddMvc();
             //ograniczenie dostępu nie tylko poprzez uwirzytelnienie, ale poprzez spełnienie dodatkowych wymagań - konfiguracja polisy
-            /*services.AddAuthorization(options =>
+            services.AddAuthorization(options =>
             {
                 options.AddPolicy("admin", p => p.RequireRole("admin"));
-            });*/
+            });
+            services.AddMemoryCache();
 
             // Implementacja Autofac'a (IoC) dependency injection
             var builder = new ContainerBuilder();

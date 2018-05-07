@@ -9,7 +9,7 @@ namespace Passenger.Infrastructure.Extensions
         public static void SetJwt(this IMemoryCache cache, Guid tokenId, JwtDto jwtDto )
             => cache.Set(GetJwtKey(tokenId), jwtDto, TimeSpan.FromSeconds(5));
 
-        public static JwtDto GetJwtDto(this IMemoryCache cache, Guid tokenId)
+        public static JwtDto GetJwt(this IMemoryCache cache, Guid tokenId)
             => cache.Get<JwtDto>(GetJwtKey(tokenId));
 
         //metoda tworzenia klucza

@@ -24,7 +24,7 @@ namespace Passenger.Api.Controllers
         // GET users/{email}
         //[Authorize] //ogólna autoryzacja 
         //[Authorize(Policy = "admin")] //autoryzacja z polisami
-        [Authorize(Roles = "admin,user")] //role based authorisation 
+        //[Authorize(Roles = "admin,user")] //role based authorisation 
         [HttpGet("{email}")]
         public async Task<IActionResult> Get(string email)
         {
