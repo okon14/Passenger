@@ -25,8 +25,8 @@ namespace Passenger.Infrastructure.Handlers.Users
         {
             await _userService.LoginAsync(command.Email, command.Password);
             var user = await _userService.GetAsync(command.Email);
-            var jwt =_jwtHandler.CreateToken(command.Email,user.Role);
-            _cache.SetJwt(command.TokenId, jwt);
+            var jwt =_jwtHandler.CreateToken(command.Email,user.Role); // stworzenie tokena
+            _cache.SetJwt(command.TokenId, jwt);  //zapisanie tokena w cache - implementacja CQRS - handler nic nie zwraca
         }
     }
 }
