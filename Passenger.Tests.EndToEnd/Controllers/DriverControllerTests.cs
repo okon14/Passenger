@@ -14,7 +14,15 @@ namespace Passenger.Tests.EndToEnd.Controllers
         [Fact]
         public async Task given_unique_user_id_driver_should_be_created()
         {
-            var newDriversUser = await GetUserAsync("user1@mail.com");
+            var newDriversUser = new UserDto();
+            try
+            {
+                newDriversUser = await GetUserAsync("user1@mail.com");
+            }
+            catch (Exception e)
+            {
+                var komunikat = e;
+            }
             // Act
             // Anonimowy obiekt symulujący użytkownika
             // var command = new {};

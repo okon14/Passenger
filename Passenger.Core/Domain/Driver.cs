@@ -18,11 +18,13 @@ namespace Passenger.Core.Domain
 
         public Driver (Guid userId)
         {
+            Id = Guid.NewGuid();
             UserId = userId;
         }
 
         public Driver (Guid userId, string vehicleBrand, string vehicleName, int vehicleSeats)
         {
+            Id = Guid.NewGuid();
             UserId = userId;
             Vehicle = Vehicle.Create(vehicleBrand, vehicleName, vehicleSeats);
         }

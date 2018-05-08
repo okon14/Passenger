@@ -24,7 +24,7 @@ namespace Passenger.Infrastructure.Services
             {
                 var userId = Guid.NewGuid();
                 var userName = $"user{i}";
-                tasks.Add(_userService.RegisterAsync(userId, $"{userName}@test.com",
+                tasks.Add(_userService.RegisterAsync(userId, $"{userName}@mail.com",
                     userName, "secret", "user"));
             }
             // inicjalizowanie użytkowników z rolą "admin"
@@ -32,7 +32,7 @@ namespace Passenger.Infrastructure.Services
             {
                 var userId = Guid.NewGuid();
                 var userName = $"admin{i}";
-                tasks.Add(_userService.RegisterAsync(userId, $"{userName}@test.com",
+                tasks.Add(_userService.RegisterAsync(userId, $"{userName}@mail.com",
                     userName, "secret", "admin"));
             }
             await Task.WhenAll(tasks); // odpal wszystkie zadania asynchronicznie i jak się zkończą to lecimy dalej - kolejność wykonania jest przypadkowa, ale wykonanie optymalne
