@@ -9,6 +9,7 @@ namespace Passenger.Core.Repositories
     {
         Task<User> GetAsync(Guid id);
         Task<User> GetAsync(string email);
+        Task<int> GetCountAsync();
         Task<IEnumerable<User>> GetAllAsync();
         Task AddAsync(User user);
         Task UpdateAsync(User user);

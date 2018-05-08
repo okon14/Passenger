@@ -26,6 +26,13 @@ namespace Passenger.Infrastructure.Services
             return _mapper.Map<User,UserDto>(user);
         }
 
+        public async Task<int> GetCountAsync()
+        {
+            int counter = await _userRepository.GetCountAsync();
+
+            return counter;
+        }
+
         public async Task LoginAsync(string email, string password)
         {
             var user = await _userRepository.GetAsync(email);
