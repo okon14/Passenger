@@ -37,6 +37,30 @@ namespace Passenger.Api.Controllers
             return Json(user);
         }
 
+        [Route("liczba")]
+        [HttpGet("")]
+        public async Task<IActionResult> Get()
+        {
+
+            var listaUserow = await _userService.GetAllAsync();
+            if(listaUserow == null)
+            {
+                return NotFound();
+            }
+
+            return Json(listaUserow);
+
+            /*
+             int? liczba = await _userService.GetCountAsync();
+             if (liczba == null)
+             {
+                 return NotFound();
+             }
+
+             return Json(liczba);
+             */
+        }
+
         [HttpPost("")]
         public async Task<IActionResult> Post([FromBody]CreateUser command)
         {

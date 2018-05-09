@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Passenger.Core.Domain;
@@ -31,6 +32,21 @@ namespace Passenger.Infrastructure.Services
             int counter = await _userRepository.GetCountAsync();
 
             return counter;
+        }
+
+        public async Task<IEnumerable<UserDto>> GetAllAsync()
+        {
+            IEnumerable<User> listOfUsers = await _userRepository.GetAllAsync();
+
+            List<UserDto> listOfUsersDto = new List<UserDto>();
+
+            foreach(var user in listOfUsers)
+            {
+                listOfUsersDto.Add(_mapper.Map<User, UserDto>(user));
+            }
+
+            return listOfUsersDto;
+
         }
 
         public async Task LoginAsync(string email, string password)

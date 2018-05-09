@@ -23,8 +23,10 @@ namespace Passenger.Infrastructure.Repositories
 
         public async Task<User> GetAsync(string email)
             => await Task.FromResult(_users.SingleOrDefault(x => x.Email == email.ToLowerInvariant()));
+
         public async Task<int> GetCountAsync()
             => await Task.FromResult(_users.Count());
+
         public async Task AddAsync(User user)
         {
             _users.Add(user);
