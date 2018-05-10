@@ -3,6 +3,7 @@ using System.Net;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Newtonsoft.Json;
+using Passenger.Core.Domain;
 using Passenger.Infrastructure.Commands.Drivers;
 using Passenger.Infrastructure.DTO;
 using Xunit;
@@ -30,9 +31,12 @@ namespace Passenger.Tests.EndToEnd.Controllers
             var command = new CreateDriver
             {
                 UserId = newDriversUser.Id,
-                VehicleBrand = "Ford",
-                VehicleName = "Focus",
-                VehicleSeats = 5,
+                Vehicle = new CreateDriver.DriverVehicle()
+                {
+                   Brand = "Ford",
+                   Name = "Focus",
+                   Seats = 5
+                }
             };
             var payload = GetPayload(command);
             var response = await Client.PostAsync("drivers",payload);

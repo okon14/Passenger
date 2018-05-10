@@ -42,7 +42,7 @@ namespace Passenger.Api.Controllers
         public async Task<IActionResult> Get()
         {
 
-            var listaUserow = await _userService.GetAllAsync();
+            var listaUserow = await _userService.BrowseAsync();
             if(listaUserow == null)
             {
                 return NotFound();

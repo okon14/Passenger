@@ -8,10 +8,12 @@ namespace Passenger.Infrastructure.Services
     public class DataInitializer : IDataInitilizer
     {
         private readonly IUserService _userService;
+        private readonly IDriverService _driverService;
         private readonly ILogger<DataInitializer> _logger; 
-        public DataInitializer(IUserService userService, ILogger<DataInitializer> logger)
+        public DataInitializer(IUserService userService, IDriverService driverService, ILogger<DataInitializer> logger)
         {
             _userService = userService;
+            _driverService = driverService;
             _logger = logger;
         }
         public async Task SeedAync()
@@ -27,6 +29,9 @@ namespace Passenger.Infrastructure.Services
                 _logger.LogTrace($"Created a new user: {userName}");
                 tasks.Add(_userService.RegisterAsync(userId, $"{userName}@mail.com",
                     userName, "secret", "user"));
+                tasks.Add(_driverService.CreateAsync(userId));
+                tasks.Add(_driverService.SetVehicleAsync(userId, "BMW", "i8", 5));
+                _logger.LogTrace($"Created a new driver for: {userName}");
             }
             // inicjalizowanie użytkowników z rolą "admin"
             for(var i=1; i<=3; i++)

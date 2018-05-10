@@ -34,7 +34,7 @@ namespace Passenger.Infrastructure.Services
             return counter;
         }
 
-        public async Task<IEnumerable<UserDto>> GetAllAsync()
+        public async Task<IEnumerable<UserDto>> BrowseAsync()
         {
             IEnumerable<User> listOfUsers = await _userRepository.GetAllAsync();
 

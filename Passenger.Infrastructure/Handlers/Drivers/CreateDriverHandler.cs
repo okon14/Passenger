@@ -12,9 +12,14 @@ namespace Passenger.Infrastructure.Handlers.Drivers
         {
             _driverService = driverService;
         }
-        public async Task HandleAsync(CreateDriver Command)
+        public async Task HandleAsync(CreateDriver command)
         {
-            await _driverService.RegisterAsync(Command.UserId, Command.VehicleBrand, Command.VehicleName, Command.VehicleSeats);
+            //moja wersja:
+            // await _driverService.RegisterAsync(Command.UserId, Command.VehicleBrand, Command.VehicleName, Command.VehicleSeats);
+            //wersja Gankiewicza
+            await _driverService.CreateAsync(command.UserId);
+            var vehicle = command.Vehicle;
+            await _driverService.SetVehicleAsync(command.UserId, vehicle.Brand, vehicle.Name, vehicle.Seats);
         }
     }
 }

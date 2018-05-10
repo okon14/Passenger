@@ -17,6 +17,14 @@ namespace Passenger.Api.Controllers
             _driverService = driverService;
         }
 
+        // zwracamy wszystkich driverow
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            var drivers = await _driverService.BrowseAsync();
+            return Json(drivers);
+        }
+
         // GET drivers/{userId}
         [HttpGet("{userId}")]
         public async Task<IActionResult> Get(string userId)
