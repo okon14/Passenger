@@ -29,13 +29,13 @@ namespace Passenger.Api.Controllers
         [HttpGet("{userId}")]
         public async Task<IActionResult> Get(string userId)
         {
-            var user = await _driverService.GetAsync(Guid.Parse(userId));
-            if(user == null)
+            var driver = await _driverService.GetAsync(Guid.Parse(userId));
+            if(driver == null)
             {
                 return NotFound();
             }
 
-            return Json(user);
+            return Json(driver);
         }
         
         [HttpPost("")]

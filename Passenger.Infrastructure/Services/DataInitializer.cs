@@ -9,11 +9,16 @@ namespace Passenger.Infrastructure.Services
     {
         private readonly IUserService _userService;
         private readonly IDriverService _driverService;
+        private readonly IDriverRouteService _driverRouteService;
         private readonly ILogger<DataInitializer> _logger; 
-        public DataInitializer(IUserService userService, IDriverService driverService, ILogger<DataInitializer> logger)
+        public DataInitializer(IUserService userService, 
+            IDriverService driverService, 
+            IDriverRouteService driverRouteService,
+            ILogger<DataInitializer> logger)
         {
             _userService = userService;
             _driverService = driverService;
+            _driverRouteService = driverRouteService;
             _logger = logger;
         }
         public async Task SeedAync()
@@ -32,6 +37,11 @@ namespace Passenger.Infrastructure.Services
                 tasks.Add(_driverService.CreateAsync(userId));
                 tasks.Add(_driverService.SetVehicleAsync(userId, "BMW", "i8"));
                 _logger.LogTrace($"Created a new driver for: {userName}");
+
+                tasks.Add(_driverRouteService.AddAsync(userId, "Default route", 1,1,2,2));
+                tasks.Add(_driverRouteService.AddAsync(userId, "Job route", 3,4,7,8));
+                _logger.LogTrace($"Adding route for: {userName}");
+                
             }
             // inicjalizowanie użytkowników z rolą "admin"
             for(var i=1; i<=3; i++)

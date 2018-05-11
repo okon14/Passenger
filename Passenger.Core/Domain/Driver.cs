@@ -1,18 +1,30 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Passenger.Core.Domain
 {
     public class Driver
     {
-        //Ogólnie przykład AggregateRoot
+        private ISet<Route> _routes = new HashSet<Route>();
+        private ISet<DailyRoute> _dailyRoutes = new HashSet<DailyRoute>();
+        //Ogólnie przykład AggregateRoot bo ma własne niepowtarzalne ID
         public Guid Id { get; protected set; }
         public Guid UserId { get; protected set; }
         public string Name { get; protected set; }
         public Vehicle Vehicle  { get; protected set; }
-        public IEnumerable<Route> Routes { get; protected set; }
-        public IEnumerable<DailyRoute> DailyRoutes { get; protected set; }
         public DateTime UpdatedAt { get; protected set; }
+
+        public IEnumerable<Route> Routes
+        {
+            get { return _routes; }
+            set { _routes = new HashSet<Route>(value); }
+        }
+        public IEnumerable<DailyRoute> DailyRoutes
+        {
+            get { return _dailyRoutes; }
+            set { _dailyRoutes = new HashSet<DailyRoute>(value); }
+        }
 
         protected Driver() 
         {
@@ -47,6 +59,28 @@ namespace Passenger.Core.Domain
         {
             Vehicle = vehicle;
             UpdatedAt = DateTime.UtcNow;
+        }
+
+        public void AddRoute(string name, Node start, Node end)
+        {
+            var route = _routes.SingleOrDefault(x => x.Name == name);
+            if(route != null)
+            {
+                throw new Exception($"Route with name {name} already exists for user {this.Name}");
+            }
+            _routes.Add(Route.Create(name, start, end));
+            UpdatedAt = DateTime.Now;
+        }
+
+        public void DeleteRoute(string name)
+        {
+            var route = _routes.SingleOrDefault(x => x.Name == name);
+            if(route == null)
+            {
+                throw new Exception($"Route with name {name} not exists for user {this.Name}");
+            }
+            _routes.Remove(route);
+            UpdatedAt = DateTime.Now;
         }
 
     }
