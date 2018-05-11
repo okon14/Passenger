@@ -52,13 +52,13 @@ namespace Passenger.Infrastructure.Services
             if(vehicles == null)
             {
                 vehicles = await GetAllAsync();
-                Console.WriteLine("Getting vehicles set from database");
+                // Console.WriteLine("Getting vehicles set from database");
                 _cache.Set(CacheKey,vehicles);
             }
-            else
+            /*else
             {
                 Console.WriteLine("Getting vehicles set from cache");
-            }
+            }*/
             
             return vehicles;
         }
