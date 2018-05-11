@@ -12,11 +12,16 @@ namespace Passenger.Infrastructure.Services
     {
         private readonly IDriverRepository _driverRepository;
         private readonly IUserRepository _userRepository;
+        private readonly IVehicleProvider _vehicleProvider;
         private readonly IMapper _mapper;
-        public DriverService(IDriverRepository driverRepository, IUserRepository userRepository, IMapper mapper)
+        public DriverService(IDriverRepository driverRepository, 
+            IUserRepository userRepository, 
+            IVehicleProvider vehicleProvider,
+            IMapper mapper)
         {
             _driverRepository = driverRepository;
             _userRepository = userRepository;
+            _vehicleProvider = vehicleProvider;
             _mapper = mapper;
         }
 
@@ -59,14 +64,16 @@ namespace Passenger.Infrastructure.Services
             await _driverRepository.AddAsync(new Driver(userId, vehicleBrand, vehicleName, vehicleSeats));
         }
 
-        public async Task SetVehicleAsync(Guid userId, string brand, string name, int seats)
+        public async Task SetVehicleAsync(Guid userId, string brand, string name)
         {
             var driver = await _driverRepository.GetAsync(userId);
             if(driver == null)
             {
                 throw new InvalidOperationException($"Driver for user: '{userId}' was not find.");
             }
-            driver.SetVehicle(brand, name, seats);
+            var vehicleDto = await _vehicleProvider.GetAsync(brand,name);
+            var vehicle = Vehicle.Create(brand, name, vehicleDto.Seats);;
+            driver.SetVehicle(vehicle);
             await _driverRepository.UpdateAsync(driver);
         }
     }

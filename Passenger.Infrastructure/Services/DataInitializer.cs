@@ -30,7 +30,7 @@ namespace Passenger.Infrastructure.Services
                 tasks.Add(_userService.RegisterAsync(userId, $"{userName}@mail.com",
                     userName, "secret", "user"));
                 tasks.Add(_driverService.CreateAsync(userId));
-                tasks.Add(_driverService.SetVehicleAsync(userId, "BMW", "i8", 5));
+                tasks.Add(_driverService.SetVehicleAsync(userId, "BMW", "i8"));
                 _logger.LogTrace($"Created a new driver for: {userName}");
             }
             // inicjalizowanie użytkowników z rolą "admin"

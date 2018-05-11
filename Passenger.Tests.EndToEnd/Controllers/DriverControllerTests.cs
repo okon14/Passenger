@@ -34,8 +34,7 @@ namespace Passenger.Tests.EndToEnd.Controllers
                 Vehicle = new CreateDriver.DriverVehicle()
                 {
                    Brand = "Ford",
-                   Name = "Focus",
-                   Seats = 5
+                   Name = "Focus"
                 }
             };
             var payload = GetPayload(command);

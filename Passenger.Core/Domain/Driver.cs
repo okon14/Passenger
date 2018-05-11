@@ -43,5 +43,11 @@ namespace Passenger.Core.Domain
             UpdatedAt = DateTime.UtcNow;
         }
 
+        public void SetVehicle(Vehicle vehicle)
+        {
+            Vehicle = vehicle;
+            UpdatedAt = DateTime.UtcNow;
+        }
+
     }
 }
