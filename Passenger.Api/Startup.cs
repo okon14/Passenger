@@ -20,6 +20,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Passenger.Infrastructure.Settings;
+using Newtonsoft.Json;
 
 namespace Passenger.Api
 {
@@ -49,7 +50,8 @@ namespace Passenger.Api
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             AuthenticationSetup(services);
-            services.AddMvc();
+            services.AddMvc()
+                .AddJsonOptions(x => x.SerializerSettings.Formatting = Formatting.Indented);
             //ograniczenie dostępu nie tylko poprzez uwirzytelnienie, ale poprzez spełnienie dodatkowych wymagań - konfiguracja polisy
             services.AddAuthorization(options =>
             {
