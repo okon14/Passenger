@@ -136,6 +136,12 @@ namespace Passenger.Api
                 var dataInitializer = app.ApplicationServices.GetService<IDataInitilizer>();
                 dataInitializer.SeedAync();
             }
+            // wstępne zainifjowanie połaczenia z Firebirdem
+            if (generalSettings.FirebirdDb)
+            {
+                var firebirdProvider = app.ApplicationServices.GetService<IFirebirdService>();
+                firebirdProvider.TestowePolaczenieAsync();
+            }
 
             app.UseAuthentication(); //JWT - otrzebne bo bez tego nie działało mi uwierzytelnianie na podstawie polis i roli
             app.UseMvc();

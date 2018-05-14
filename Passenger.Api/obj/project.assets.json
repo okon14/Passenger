@@ -51,6 +51,19 @@
           "lib/netstandard1.3/AutoMapper.dll": {}
         }
       },
+      "FirebirdSql.Data.FirebirdClient/5.12.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.PlatformAbstractions": "1.1.0",
+          "System.Reflection.Emit": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/FirebirdSql.Data.FirebirdClient.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/FirebirdSql.Data.FirebirdClient.dll": {}
+        }
+      },
       "Libuv/1.10.0": {
         "type": "package",
         "dependencies": {
@@ -4832,6 +4845,7 @@
         "dependencies": {
           "AutoMapper": "6.2.2",
           "Autofac": "4.7.0",
+          "FirebirdSql.Data.FirebirdClient": "5.12.1",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "2.1.0-preview2-final",
           "Microsoft.Extensions.Caching.Memory": "2.0.1",
           "Microsoft.Extensions.Configuration": "2.1.0-preview2-final",
@@ -4888,6 +4902,26 @@
         "lib/netstandard1.1/AutoMapper.xml",
         "lib/netstandard1.3/AutoMapper.dll",
         "lib/netstandard1.3/AutoMapper.xml"
+      ]
+    },
+    "FirebirdSql.Data.FirebirdClient/5.12.1": {
+      "sha512": "qthLfSqLsPPnCNFJRJbjxcwqt4qzkYWFMsXbVDwEHrhOENTL2Zbkt7/i7y5DsvCTNfgPqnWbzPemqNJbuOPDCw==",
+      "type": "package",
+      "path": "firebirdsql.data.firebirdclient/5.12.1",
+      "files": [
+        "content/app.config.transform",
+        "content/web.config.transform",
+        "firebirdsql.data.firebirdclient.5.12.1.nupkg.sha512",
+        "firebirdsql.data.firebirdclient.nuspec",
+        "lib/net40-client/FirebirdSql.Data.FirebirdClient.dll",
+        "lib/net40-client/FirebirdSql.Data.FirebirdClient.pdb",
+        "lib/net452/FirebirdSql.Data.FirebirdClient.dll",
+        "lib/net452/FirebirdSql.Data.FirebirdClient.pdb",
+        "lib/netstandard1.6/FirebirdSql.Data.FirebirdClient.dll",
+        "lib/netstandard1.6/FirebirdSql.Data.FirebirdClient.pdb",
+        "lib/netstandard2.0/FirebirdSql.Data.FirebirdClient.dll",
+        "lib/netstandard2.0/FirebirdSql.Data.FirebirdClient.pdb",
+        "readme.txt"
       ]
     },
     "Libuv/1.10.0": {
