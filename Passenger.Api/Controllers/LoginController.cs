@@ -20,7 +20,7 @@ namespace Passenger.Api.Controllers
         public async Task<IActionResult> Post([FromBody] Login command)
         {
             command.TokenId = Guid.NewGuid(); // tworzenie IdTokena
-            await CommandDispatcher.DispatchAsync(command);
+            await DispatchAsync(command);
             var jwt = _cache.GetJwt(command.TokenId); // pobranie stworzonego tokena o id zgodnym z powyższym
 
             return Json(jwt);

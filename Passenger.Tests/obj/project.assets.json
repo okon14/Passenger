@@ -58,6 +58,19 @@
           "lib/netstandard1.3/Castle.Core.dll": {}
         }
       },
+      "FirebirdSql.Data.FirebirdClient/5.12.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.PlatformAbstractions": "1.1.0",
+          "System.Reflection.Emit": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/FirebirdSql.Data.FirebirdClient.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/FirebirdSql.Data.FirebirdClient.dll": {}
+        }
+      },
       "FluentAssertions/5.2.0": {
         "type": "package",
         "dependencies": {
@@ -463,6 +476,19 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Extensions.Options.dll": {}
+        }
+      },
+      "Microsoft.Extensions.PlatformAbstractions/1.1.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "System.Reflection.TypeExtensions": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.Extensions.PlatformAbstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.Extensions.PlatformAbstractions.dll": {}
         }
       },
       "Microsoft.Extensions.Primitives/2.1.0-preview2-final": {
@@ -2900,6 +2926,7 @@
         "dependencies": {
           "AutoMapper": "6.2.2",
           "Autofac": "4.7.0",
+          "FirebirdSql.Data.FirebirdClient": "5.12.1",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "2.1.0-preview2-final",
           "Microsoft.Extensions.Caching.Memory": "2.0.1",
           "Microsoft.Extensions.Configuration": "2.1.0-preview2-final",
@@ -2965,6 +2992,26 @@
         "lib/net45/Castle.Core.xml",
         "lib/netstandard1.3/Castle.Core.dll",
         "lib/netstandard1.3/Castle.Core.xml",
+        "readme.txt"
+      ]
+    },
+    "FirebirdSql.Data.FirebirdClient/5.12.1": {
+      "sha512": "qthLfSqLsPPnCNFJRJbjxcwqt4qzkYWFMsXbVDwEHrhOENTL2Zbkt7/i7y5DsvCTNfgPqnWbzPemqNJbuOPDCw==",
+      "type": "package",
+      "path": "firebirdsql.data.firebirdclient/5.12.1",
+      "files": [
+        "content/app.config.transform",
+        "content/web.config.transform",
+        "firebirdsql.data.firebirdclient.5.12.1.nupkg.sha512",
+        "firebirdsql.data.firebirdclient.nuspec",
+        "lib/net40-client/FirebirdSql.Data.FirebirdClient.dll",
+        "lib/net40-client/FirebirdSql.Data.FirebirdClient.pdb",
+        "lib/net452/FirebirdSql.Data.FirebirdClient.dll",
+        "lib/net452/FirebirdSql.Data.FirebirdClient.pdb",
+        "lib/netstandard1.6/FirebirdSql.Data.FirebirdClient.dll",
+        "lib/netstandard1.6/FirebirdSql.Data.FirebirdClient.pdb",
+        "lib/netstandard2.0/FirebirdSql.Data.FirebirdClient.dll",
+        "lib/netstandard2.0/FirebirdSql.Data.FirebirdClient.pdb",
         "readme.txt"
       ]
     },
@@ -3357,6 +3404,19 @@
         "lib/netstandard2.0/Microsoft.Extensions.Options.xml",
         "microsoft.extensions.options.2.1.0-preview2-final.nupkg.sha512",
         "microsoft.extensions.options.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.PlatformAbstractions/1.1.0": {
+      "sha512": "ZtBTqKA50i5zslaCLNdOoRv57iL+IZJYdvR/n4fOAm8QCd5xX5RUZLvgx/OAQ7ncgZYLr1oKXG+qgFRvxaqqNw==",
+      "type": "package",
+      "path": "microsoft.extensions.platformabstractions/1.1.0",
+      "files": [
+        "lib/net451/Microsoft.Extensions.PlatformAbstractions.dll",
+        "lib/net451/Microsoft.Extensions.PlatformAbstractions.xml",
+        "lib/netstandard1.3/Microsoft.Extensions.PlatformAbstractions.dll",
+        "lib/netstandard1.3/Microsoft.Extensions.PlatformAbstractions.xml",
+        "microsoft.extensions.platformabstractions.1.1.0.nupkg.sha512",
+        "microsoft.extensions.platformabstractions.nuspec"
       ]
     },
     "Microsoft.Extensions.Primitives/2.1.0-preview2-final": {
@@ -8907,6 +8967,7 @@
             "version": "[15.7.0, )"
           },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.0.0, )",
             "autoReferenced": true

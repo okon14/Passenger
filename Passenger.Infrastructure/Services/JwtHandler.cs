@@ -16,13 +16,14 @@ namespace Passenger.Infrastructure.Services
         {
             _settings = settings;
         }
-        public JwtDto CreateToken(string email, string role)
+        public JwtDto CreateToken(Guid userId, string role)
         {
             var now = DateTime.UtcNow;
             // za pomocą claimsów możemu ustawiać dane ... (nie mogę zrozumieć)
             var claims = new Claim[]
             {
-               new Claim(JwtRegisteredClaimNames.Sub, email),  // dla kogo tworzymy token  
+               new Claim(JwtRegisteredClaimNames.Sub, userId.ToString()),  // dla kogo tworzymy token  
+               new Claim(JwtRegisteredClaimNames.UniqueName, userId.ToString()), // przypisanie do tokena identity usera widziane z poziomu aplikacji
                new Claim(ClaimTypes.Role, role), // rola - admin lub zwykły uzytkownik
                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString() ), //identyfikator
                new Claim(JwtRegisteredClaimNames.Iat, now.ToTimestamp().ToString(), ClaimValueTypes.Integer64 ) // linuksowy epoch - format daty

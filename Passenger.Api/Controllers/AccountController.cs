@@ -16,13 +16,13 @@ namespace Passenger.Api.Controllers
             _jwtHandler = jwtHandler;      
         }
 
-        [HttpGet]
+        /*[HttpGet]
         [Route("token")]
         public IActionResult Get()
         {
             var token = _jwtHandler.CreateToken("user1@mail.com","admin");
             return Json(token);
-        }  
+        }*/ 
 
         [HttpGet]
         [Authorize] // tylko zautoryzowany uzytkownik dostanie się do zasobu
@@ -36,7 +36,7 @@ namespace Passenger.Api.Controllers
         [Route("password")]
         public async Task<IActionResult> Put([FromBody]ChangeUserPassword command)
         {
-            await CommandDispatcher.DispatchAsync(command);
+            await DispatchAsync(command);
             return NoContent();
         }  
     }
