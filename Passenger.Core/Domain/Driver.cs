@@ -61,14 +61,18 @@ namespace Passenger.Core.Domain
             UpdatedAt = DateTime.UtcNow;
         }
 
-        public void AddRoute(string name, Node start, Node end)
+        public void AddRoute(string name, Node start, Node end, double distance)
         {
             var route = _routes.SingleOrDefault(x => x.Name == name);
             if(route != null)
             {
                 throw new Exception($"Route with name {name} already exists for user {this.Name}");
             }
-            _routes.Add(Route.Create(name, start, end));
+            if(distance < 0)
+            {
+                throw new Exception($"Route with name {name} can not have negative distance");
+            }
+            _routes.Add(Route.Create(name, start, end, distance));
             UpdatedAt = DateTime.Now;
         }
 

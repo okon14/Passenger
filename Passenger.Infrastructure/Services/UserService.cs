@@ -24,7 +24,7 @@ namespace Passenger.Infrastructure.Services
         {
             var user = await _userRepository.GetAsync(email);
 
-            return _mapper.Map<User,UserDto>(user);
+            return _mapper.Map<UserDto>(user);
         }
 
         public async Task<int> GetCountAsync()
@@ -42,7 +42,7 @@ namespace Passenger.Infrastructure.Services
 
             foreach(var user in listOfUsers)
             {
-                listOfUsersDto.Add(_mapper.Map<User, UserDto>(user));
+                listOfUsersDto.Add(_mapper.Map<UserDto>(user));
             }
 
             return listOfUsersDto;
