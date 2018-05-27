@@ -13,5 +13,6 @@ namespace Passenger.Core.Repositories
         Task AddAsync(Driver driver);
         Task UpdateAsync(Driver driver);
         Task RemoveAsync(Guid id);
+        Task DeleteAsync(Driver driver);
     }
 }

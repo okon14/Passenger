@@ -5,6 +5,7 @@ using FluentAssertions;
 using Newtonsoft.Json;
 using Passenger.Core.Domain;
 using Passenger.Infrastructure.Commands.Drivers;
+using Passenger.Infrastructure.Commands.Drivers.Models;
 using Passenger.Infrastructure.DTO;
 using Xunit;
 
@@ -31,7 +32,7 @@ namespace Passenger.Tests.EndToEnd.Controllers
             var command = new CreateDriver
             {
                 UserId = newDriversUser.Id,
-                Vehicle = new CreateDriver.DriverVehicle()
+                Vehicle = new DriverVehicle()
                 {
                    Brand = "Ford",
                    Name = "Focus"

@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Passenger.Infrastructure.Commands;
 using Passenger.Infrastructure.Commands.Drivers;
@@ -38,12 +39,31 @@ namespace Passenger.Api.Controllers
             return Json(driver);
         }
         
-        [HttpPost("")]
+        [Authorize]
+        [HttpPost]
         public async Task<IActionResult> Post([FromBody]CreateDriver command)
         {
             await DispatchAsync(command);
             //Location: drivers/driverID
             return Created($"drivers/{command.UserId}",new object());
+        }
+
+        [Authorize]
+        [HttpPut("me")] // aktualizuje drivera - akzutalizuje moje konto kierowcy
+        public async Task<IActionResult> Put([FromBody]UpdateDriver command)
+        {
+            await DispatchAsync(command);
+            //Location: drivers/driverID
+            return NoContent();
+        }
+
+        [Authorize]
+        [HttpDelete("me")] // usuwa instancje  drivera skojarzona z zalogownaym uzytkownikiem
+        public async Task<IActionResult> Post()
+        {
+            await DispatchAsync(new DeleteDriver());
+            //Location: drivers/driverID
+            return NoContent();
         }
 
     }
