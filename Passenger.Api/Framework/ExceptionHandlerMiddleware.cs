@@ -3,6 +3,7 @@ using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
+using Passenger.Infrastructure.Exceptions;
 
 namespace Passenger.Api.Framework
 {
@@ -30,7 +31,7 @@ namespace Passenger.Api.Framework
 
         private static Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
-            var errorCoder = "error";
+            var errorCode = "error";
             var statusCode = HttpStatusCode.BadRequest;
             var exceptionType = exception.GetType(); 
             
@@ -39,13 +40,19 @@ namespace Passenger.Api.Framework
                 case Exception e when exceptionType == typeof(UnauthorizedAccessException): // featrue z wersji 7 c# -> pattern matching taki case bez stałych warunków
                     statusCode = HttpStatusCode.Unauthorized;
                     break;
-                // TODO: custom exception
+                
+                // custom Passengers exception
+                case ServiceException e when exceptionType == typeof(ServiceException):
+                    statusCode = HttpStatusCode.BadRequest;
+                    errorCode = e.Code;
+                    break;
+
                 default:
                     statusCode = HttpStatusCode.InternalServerError;
                     break;
             }
             // przemapowanie błędu i komuniaktua na format jsona
-            var response = new { code = errorCoder, message = exception.Message };
+            var response = new { code = errorCode, message = exception.Message };
             // tworzenie odpowiedzi na zapytanie http
             var payload = JsonConvert.SerializeObject(response);
             context.Response.ContentType = "application/json";

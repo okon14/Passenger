@@ -5,6 +5,7 @@ using AutoMapper;
 using Passenger.Core.Domain;
 using Passenger.Core.Repositories;
 using Passenger.Infrastructure.DTO;
+using Passenger.Infrastructure.Exceptions;
 using Passenger.Infrastructure.Extensions;
 
 namespace Passenger.Infrastructure.Services
@@ -39,7 +40,7 @@ namespace Passenger.Infrastructure.Services
             var driver = await _driverRepository.GetAsync(userId);
             if(driver != null)
             {
-                throw new Exception($"Driver with userId = {userId} already exists."); 
+                throw new ServiceException( Infrastructure.Exceptions.ErrorCodes.DriverAlreadyExists, $"Driver with userId = {userId} already exists."); 
             }
             driver = new Driver(user);
             await _driverRepository.AddAsync(driver);
@@ -62,7 +63,7 @@ namespace Passenger.Infrastructure.Services
             var driver = await _driverRepository.GetAsync(userId);
             if(driver != null)
             {
-                throw new InvalidOperationException($"Driver already exists for user: '{userId}'.");
+                throw new ServiceException( Infrastructure.Exceptions.ErrorCodes.DriverAlreadyExists, $"Driver already exists for user: '{userId}'.");
             }
             await _driverRepository.AddAsync(new Driver(userId, vehicleBrand, vehicleName, vehicleSeats));
         }
