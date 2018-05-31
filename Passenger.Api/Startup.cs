@@ -21,6 +21,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Passenger.Infrastructure.Settings;
 using Newtonsoft.Json;
+using Passenger.Api.Framework;
 
 namespace Passenger.Api
 {
@@ -144,6 +145,7 @@ namespace Passenger.Api
             }
 
             app.UseAuthentication(); //JWT - otrzebne bo bez tego nie działało mi uwierzytelnianie na podstawie polis i roli
+            app.UseCustomExceptionHandler(); // uzycie własnego middleware'a do obsługi błędów
             app.UseMvc();
 
             // Jeżeli aplikacja się zatrzyma to wywołaj metodę Register i wywołaj na naszym kontenerze Dispose aby wyczyścić nieużytki
