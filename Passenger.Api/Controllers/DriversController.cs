@@ -22,7 +22,6 @@ namespace Passenger.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            throw new Exception("Ups..");
             var drivers = await _driverService.BrowseAsync();
             return Json(drivers);
         }
