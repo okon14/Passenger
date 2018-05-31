@@ -12,6 +12,10 @@
   <ItemGroup>
     <Content Include="appsettings.json" CopyToOutputDirectory="PreserveNewest"/>
   </ItemGroup>
+  <!-- kopiowanie ustawień NLoga -->
+  <ItemGroup>
+    <Content Include="nlog.config" CopyToOutputDirectory="PreserveNewest"/>
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Passenger.Api\Passenger.Api.csproj" Version="1.0.0" />

@@ -22,6 +22,8 @@ using System.Text;
 using Passenger.Infrastructure.Settings;
 using Newtonsoft.Json;
 using Passenger.Api.Framework;
+using NLog.Extensions.Logging;
+using NLog.Web;
 
 namespace Passenger.Api
 {
@@ -121,8 +123,11 @@ namespace Passenger.Api
         public void Configure(IApplicationBuilder app, IHostingEnvironment env,
             ILoggerFactory loggerFactory, IApplicationLifetime appLifetime)
         {
-            loggerFactory.AddConsole(this.Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
+            //loggerFactory.AddConsole(this.Configuration.GetSection("Logging"));
+            //loggerFactory.AddDebug();
+            loggerFactory.AddNLog();
+            //app.AddNLogWeb(); -- przeniesione do Program.cs
+            env.ConfigureNLog("nlog.config");
 
             if (env.IsDevelopment())
             {
