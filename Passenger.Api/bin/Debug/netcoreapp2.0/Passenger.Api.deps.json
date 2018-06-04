@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "f3472a3c8cfda458dda169f2d080661245827b94"
+    "signature": "22866cf63f29ad518c2052fa193d49dbbc6ff149"
   },
   "compilationOptions": {
     "defines": [
@@ -30,6 +30,7 @@
           "Microsoft.AspNetCore.Authentication.JwtBearer": "2.1.0-preview2-final",
           "Microsoft.Extensions.Caching.Memory": "2.0.1",
           "Microsoft.NETCore.App": "2.0.0",
+          "MongoDB.Driver": "2.6.1",
           "NLog.Extensions.Logging": "1.1.0",
           "NLog.Web.AspNetCore": "4.5.4",
           "Passenger.Infrastructure": "1.0.0"
@@ -85,6 +86,32 @@
         },
         "compile": {
           "lib/netstandard1.3/AutoMapper.dll": {}
+        }
+      },
+      "DnsClient/1.0.7": {
+        "dependencies": {
+          "Microsoft.Win32.Primitives": "4.3.0",
+          "NETStandard.Library": "2.0.0",
+          "System.Buffers": "4.5.0-preview2-26406-04",
+          "System.Collections": "4.3.0",
+          "System.Collections.Concurrent": "4.3.0",
+          "System.Globalization.Extensions": "4.3.0",
+          "System.IO.FileSystem": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Net.NameResolution": "4.3.0",
+          "System.Net.NetworkInformation": "4.3.0",
+          "System.Net.Sockets": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Runtime.InteropServices": "4.3.0",
+          "System.Runtime.InteropServices.RuntimeInformation": "4.3.0",
+          "System.Text.Encoding": "4.3.0",
+          "System.Threading": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/DnsClient.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.3/DnsClient.dll": {}
         }
       },
       "FirebirdSql.Data.FirebirdClient/5.12.1": {
@@ -2397,6 +2424,54 @@
           "ref/netstandard2.0/Microsoft.Win32.Registry.dll": {}
         }
       },
+      "MongoDB.Bson/2.6.1": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.0",
+          "System.Collections.NonGeneric": "4.3.0",
+          "System.Diagnostics.Process": "4.1.0",
+          "System.Dynamic.Runtime": "4.3.0",
+          "System.Reflection.Emit.Lightweight": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.5/MongoDB.Bson.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.5/MongoDB.Bson.dll": {}
+        }
+      },
+      "MongoDB.Driver/2.6.1": {
+        "dependencies": {
+          "MongoDB.Bson": "2.6.1",
+          "MongoDB.Driver.Core": "2.6.1",
+          "NETStandard.Library": "2.0.0",
+          "System.ComponentModel.TypeConverter": "4.3.0",
+          "System.Linq.Queryable": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.5/MongoDB.Driver.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.5/MongoDB.Driver.dll": {}
+        }
+      },
+      "MongoDB.Driver.Core/2.6.1": {
+        "dependencies": {
+          "DnsClient": "1.0.7",
+          "MongoDB.Bson": "2.6.1",
+          "NETStandard.Library": "2.0.0",
+          "System.Collections.Specialized": "4.3.0",
+          "System.Diagnostics.TraceSource": "4.0.0",
+          "System.Net.NameResolution": "4.3.0",
+          "System.Net.Security": "4.3.0",
+          "System.Security.SecureString": "4.0.0"
+        },
+        "runtime": {
+          "lib/netstandard1.5/MongoDB.Driver.Core.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.5/MongoDB.Driver.Core.dll": {}
+        }
+      },
       "Newtonsoft.Json/11.0.2": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
@@ -2890,6 +2965,45 @@
           }
         }
       },
+      "System.Diagnostics.Process/4.1.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "2.0.0",
+          "Microsoft.Win32.Primitives": "4.3.0",
+          "Microsoft.Win32.Registry": "4.5.0-preview2-26406-04",
+          "System.Collections": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.IO": "4.3.0",
+          "System.IO.FileSystem": "4.3.0",
+          "System.IO.FileSystem.Primitives": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Runtime.Handles": "4.3.0",
+          "System.Runtime.InteropServices": "4.3.0",
+          "System.Text.Encoding": "4.3.0",
+          "System.Text.Encoding.Extensions": "4.3.0",
+          "System.Threading": "4.3.0",
+          "System.Threading.Tasks": "4.3.0",
+          "System.Threading.Thread": "4.3.0",
+          "System.Threading.ThreadPool": "4.3.0",
+          "runtime.native.System": "4.3.0"
+        },
+        "runtimeTargets": {
+          "runtime/linux/lib/_._": {
+            "rid": "linux",
+            "assetType": "runtime"
+          },
+          "runtime/osx/lib/_._": {
+            "rid": "osx",
+            "assetType": "runtime"
+          },
+          "runtime/win/lib/_._": {
+            "rid": "win",
+            "assetType": "runtime"
+          }
+        }
+      },
       "System.Diagnostics.StackTrace/4.3.0": {
         "dependencies": {
           "System.IO.FileSystem": "4.3.0",
@@ -2903,6 +3017,29 @@
           "Microsoft.NETCore.Platforms": "2.0.0",
           "Microsoft.NETCore.Targets": "1.1.0",
           "System.Runtime": "4.3.0"
+        }
+      },
+      "System.Diagnostics.TraceSource/4.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "2.0.0",
+          "System.Collections": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Threading": "4.3.0",
+          "runtime.native.System": "4.3.0"
+        },
+        "runtimeTargets": {
+          "runtime/unix/lib/_._": {
+            "rid": "unix",
+            "assetType": "runtime"
+          },
+          "runtime/win/lib/_._": {
+            "rid": "win",
+            "assetType": "runtime"
+          }
         }
       },
       "System.Diagnostics.Tracing/4.3.0": {
@@ -3158,6 +3295,47 @@
         "runtimeTargets": {
           "runtime/unix/lib/_._": {
             "rid": "unix",
+            "assetType": "runtime"
+          },
+          "runtime/win/lib/_._": {
+            "rid": "win",
+            "assetType": "runtime"
+          }
+        }
+      },
+      "System.Net.NetworkInformation/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "2.0.0",
+          "Microsoft.Win32.Primitives": "4.3.0",
+          "System.Collections": "4.3.0",
+          "System.Diagnostics.Tracing": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.IO": "4.3.0",
+          "System.IO.FileSystem": "4.3.0",
+          "System.IO.FileSystem.Primitives": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Net.Primitives": "4.3.0",
+          "System.Net.Sockets": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Runtime.Handles": "4.3.0",
+          "System.Runtime.InteropServices": "4.3.0",
+          "System.Security.Principal.Windows": "4.5.0-preview2-26406-04",
+          "System.Threading": "4.3.0",
+          "System.Threading.Overlapped": "4.3.0",
+          "System.Threading.Tasks": "4.3.0",
+          "System.Threading.Thread": "4.3.0",
+          "System.Threading.ThreadPool": "4.3.0",
+          "runtime.native.System": "4.3.0"
+        },
+        "runtimeTargets": {
+          "runtime/linux/lib/_._": {
+            "rid": "linux",
+            "assetType": "runtime"
+          },
+          "runtime/osx/lib/_._": {
+            "rid": "osx",
             "assetType": "runtime"
           },
           "runtime/win/lib/_._": {
@@ -3688,6 +3866,28 @@
           "ref/netstandard2.0/System.Security.Principal.Windows.dll": {}
         }
       },
+      "System.Security.SecureString/4.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "2.0.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Handles": "4.3.0",
+          "System.Runtime.InteropServices": "4.3.0",
+          "System.Security.Cryptography.Primitives": "4.3.0",
+          "System.Text.Encoding": "4.3.0",
+          "System.Threading": "4.3.0"
+        },
+        "runtimeTargets": {
+          "runtime/unix/lib/_._": {
+            "rid": "unix",
+            "assetType": "runtime"
+          },
+          "runtime/win/lib/_._": {
+            "rid": "win",
+            "assetType": "runtime"
+          }
+        }
+      },
       "System.Spatial/5.8.2": {
         "runtime": {
           "lib/netstandard1.1/System.Spatial.dll": {}
@@ -3771,6 +3971,24 @@
         "dependencies": {
           "System.Runtime": "4.3.0",
           "System.Threading.Tasks": "4.3.0"
+        }
+      },
+      "System.Threading.Overlapped/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "2.0.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Handles": "4.3.0"
+        },
+        "runtimeTargets": {
+          "runtime/unix/lib/_._": {
+            "rid": "unix",
+            "assetType": "runtime"
+          },
+          "runtime/win/lib/_._": {
+            "rid": "win",
+            "assetType": "runtime"
+          }
         }
       },
       "System.Threading.Tasks/4.3.0": {
@@ -3939,6 +4157,7 @@
           "Microsoft.Extensions.Caching.Memory": "2.0.1",
           "Microsoft.Extensions.Configuration": "2.1.0-preview2-final",
           "Microsoft.Extensions.Configuration.Binder": "2.1.0-preview2-final",
+          "MongoDB.Driver": "2.6.1",
           "NLog": "4.5.6",
           "Newtonsoft.Json": "11.0.2",
           "Passenger.Core": "1.0.0"
@@ -4153,6 +4372,13 @@
       "sha512": "sha512-eGKcnJdoF5rYMWPUaSPtlWdvua9xw4hnQN5kM/X4AXLGKghrtPIaMv+RYoA3sj0kyZ3X6wZ1Qj67F+u0pCCPaw==",
       "path": "automapper/6.2.2",
       "hashPath": "automapper.6.2.2.nupkg.sha512"
+    },
+    "DnsClient/1.0.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-f3k5ufhUSL658fy/ac1mReqRIr0jGMyOJFvBqJ+7cASq01NIysYbrrRDjboYKAGrd0Y2mc1A749uQvT8vAA91A==",
+      "path": "dnsclient/1.0.7",
+      "hashPath": "dnsclient.1.0.7.nupkg.sha512"
     },
     "FirebirdSql.Data.FirebirdClient/5.12.1": {
       "type": "package",
@@ -5295,6 +5521,27 @@
       "path": "microsoft.win32.registry/4.5.0-preview2-26406-04",
       "hashPath": "microsoft.win32.registry.4.5.0-preview2-26406-04.nupkg.sha512"
     },
+    "MongoDB.Bson/2.6.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pKSE9nG9OZX2uPjSI/AGWLGtOVINNiUbLpJYtFN/0oxWams0KbXOW6tFXAoL1iXuWUR3RxSz8u4DIhueCSm/Jg==",
+      "path": "mongodb.bson/2.6.1",
+      "hashPath": "mongodb.bson.2.6.1.nupkg.sha512"
+    },
+    "MongoDB.Driver/2.6.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GwEKCHKjmgcsinLiLs7q54YoS4n03e+Ax/21j4PvppTYQAIpPusX/qdaU/gvZbpH97k/LmSGBN/5cdxN6mvFGw==",
+      "path": "mongodb.driver/2.6.1",
+      "hashPath": "mongodb.driver.2.6.1.nupkg.sha512"
+    },
+    "MongoDB.Driver.Core/2.6.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lBjITp66o0OX5PHp5INxYTOz7RZa2GCPpKXUYZMo+1Cxy8TtIDiba6PmP6XB5KO+Zw/8AeofSh4ofj1uHxXuqQ==",
+      "path": "mongodb.driver.core/2.6.1",
+      "hashPath": "mongodb.driver.core.2.6.1.nupkg.sha512"
+    },
     "Newtonsoft.Json/11.0.2": {
       "type": "package",
       "serviceable": true,
@@ -5652,6 +5899,13 @@
       "path": "system.diagnostics.fileversioninfo/4.3.0",
       "hashPath": "system.diagnostics.fileversioninfo.4.3.0.nupkg.sha512"
     },
+    "System.Diagnostics.Process/4.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oeu8TLRfGzxdzB+iKBYD3f9ZWuktGBOWScZaGKDBHCps3j1SaZvUOTlzDUMFQQJj1n8vZa9BaN96yFHZi3IyUQ==",
+      "path": "system.diagnostics.process/4.1.0",
+      "hashPath": "system.diagnostics.process.4.1.0.nupkg.sha512"
+    },
     "System.Diagnostics.StackTrace/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -5665,6 +5919,13 @@
       "sha512": "sha512-NrRbcdL19iJddz6qIimnD9O3pjJro72Qug1JXCkDFUB9BNViBvnWZoPxp7JcFA8tF4u1Zphdmoreh2KBr/F0uA==",
       "path": "system.diagnostics.tools/4.3.0",
       "hashPath": "system.diagnostics.tools.4.3.0.nupkg.sha512"
+    },
+    "System.Diagnostics.TraceSource/4.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6WVCczFZKXwpWpzd/iJkYnsmWTSFFiU24Xx/YdHXBcu+nFI/ehTgeqdJQFbtRPzbrO3KtRNjvkhtj4t5/WwWsA==",
+      "path": "system.diagnostics.tracesource/4.0.0",
+      "hashPath": "system.diagnostics.tracesource.4.0.0.nupkg.sha512"
     },
     "System.Diagnostics.Tracing/4.3.0": {
       "type": "package",
@@ -5784,6 +6045,13 @@
       "sha512": "sha512-7asC1ZoRAKt/UTjw6va5Bb3U4QKK0AZlGF80tw2DBfzGMkvKbjcaQMVtpLWsBZxLpJJq5pw/Yuv5/mZYThGCsQ==",
       "path": "system.net.nameresolution/4.3.0",
       "hashPath": "system.net.nameresolution.4.3.0.nupkg.sha512"
+    },
+    "System.Net.NetworkInformation/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zNVmWVry0pAu7lcrRBhwwU96WUdbsrGL3azyzsbXmVNptae1+Za+UgOe9Z6s8iaWhPn7/l4wQqhC56HZWq7tkg==",
+      "path": "system.net.networkinformation/4.3.0",
+      "hashPath": "system.net.networkinformation.4.3.0.nupkg.sha512"
     },
     "System.Net.Primitives/4.3.0": {
       "type": "package",
@@ -6058,6 +6326,13 @@
       "path": "system.security.principal.windows/4.5.0-preview2-26406-04",
       "hashPath": "system.security.principal.windows.4.5.0-preview2-26406-04.nupkg.sha512"
     },
+    "System.Security.SecureString/4.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-sqzq9GD6/b0yqPuMpgIKBuoLf4VKAj8oAfh4kXSzPaN6eoKY3hRi9C5L27uip25qlU+BGPfb0xh2Rmbwc4jFVA==",
+      "path": "system.security.securestring/4.0.0",
+      "hashPath": "system.security.securestring.4.0.0.nupkg.sha512"
+    },
     "System.Spatial/5.8.2": {
       "type": "package",
       "serviceable": true,
@@ -6106,6 +6381,13 @@
       "sha512": "sha512-bcyNzfSjqAjzEWn1M5xaNYv6w2TVCjoGWtbJFji5+bIqOHKwV5ny0rDF5O1SQ3S/he4BxGy41JZNVu/y2D4p9g==",
       "path": "system.threading/4.3.0",
       "hashPath": "system.threading.4.3.0.nupkg.sha512"
+    },
+    "System.Threading.Overlapped/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zdYDAv3ef2vfkVH2VEVPYA7Ub56is0yuJ7f9RapSXm5hvFRE8zTWRwdpKAYE26Flk/Qr4jG/x+jpWNw9GlVe1Q==",
+      "path": "system.threading.overlapped/4.3.0",
+      "hashPath": "system.threading.overlapped.4.3.0.nupkg.sha512"
     },
     "System.Threading.Tasks/4.3.0": {
       "type": "package",
