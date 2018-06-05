@@ -23,6 +23,12 @@ namespace Passenger.Infrastructure.Services
         }
         public async Task SeedAync()
         {
+            var users = await _userService.GetCountAsync();
+            if(users > 0)
+            {
+                // nie inicjalizuj jak dane sa już w bazie
+                return;
+            }
             _logger.LogTrace("Initializing data...");
             // sposób obsługi tasków w pętli
             var tasks = new List<Task>();
@@ -32,14 +38,14 @@ namespace Passenger.Infrastructure.Services
                 var userId = Guid.NewGuid();
                 var userName = $"user{i}";
                 _logger.LogTrace($"Created a new user: {userName}");
-                tasks.Add(_userService.RegisterAsync(userId, $"{userName}@mail.com",
-                    userName, "secret", "user"));
-                tasks.Add(_driverService.CreateAsync(userId));
-                tasks.Add(_driverService.SetVehicleAsync(userId, "BMW", "i8"));
+                await _userService.RegisterAsync(userId, $"{userName}@mail.com",
+                    userName, "secret", "user");
+                await _driverService.CreateAsync(userId);
+                await _driverService.SetVehicleAsync(userId, "BMW", "i8");
                 _logger.LogTrace($"Created a new driver for: {userName}");
 
-                tasks.Add(_driverRouteService.AddAsync(userId, "Default route", 1,1,2,2));
-                tasks.Add(_driverRouteService.AddAsync(userId, "Job route", 3,4,7,8));
+                await _driverRouteService.AddAsync(userId, "Default route", 1,1,2,2);
+                await _driverRouteService.AddAsync(userId, "Job route", 3,4,7,8);
                 _logger.LogTrace($"Adding route for: {userName}");
                 
             }
