@@ -1,0 +1,11 @@
+use Passenger
+db.createUser(
+	{
+		user: "root",
+		pwd: "secret",
+		roles:
+		[
+			{role: "dbOwner", db: "Passenger"}
+		]
+	}
+)
