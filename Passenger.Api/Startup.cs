@@ -25,6 +25,7 @@ using Passenger.Api.Framework;
 using NLog.Extensions.Logging;
 using NLog.Web;
 using Passenger.Infrastructure.Mongo;
+using Passenger.Infrastructure.EF;
 
 namespace Passenger.Api
 {
@@ -62,6 +63,9 @@ namespace Passenger.Api
                 options.AddPolicy("admin", p => p.RequireRole("admin"));
             });
             services.AddMemoryCache();
+            services.AddEntityFrameworkSqlServer()
+                    .AddEntityFrameworkInMemoryDatabase()
+                    .AddDbContext<PassengerContext>();
 
             // Implementacja Autofac'a (IoC) dependency injection
             var builder = new ContainerBuilder();
