@@ -55,10 +55,9 @@ namespace Passenger.Infrastructure.Services
                 var userId = Guid.NewGuid();
                 var userName = $"admin{i}";
                 _logger.LogTrace($"Created a new user: {userName}");
-                tasks.Add(_userService.RegisterAsync(userId, $"{userName}@mail.com",
-                    userName, "secret", "admin"));
+                await _userService.RegisterAsync(userId, $"{userName}@mail.com",
+                    userName, "secret", "admin");
             }
-            await Task.WhenAll(tasks); // odpal wszystkie zadania asynchronicznie i jak się zkończą to lecimy dalej - kolejność wykonania jest przypadkowa, ale wykonanie optymalne
             var counter = await _userService.GetCountAsync();
             _logger.LogTrace($"Summup elements counter: {counter}");
             _logger.LogTrace("Data was initialized.");

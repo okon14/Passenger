@@ -7,6 +7,7 @@ namespace Passenger.Infrastructure.EF
     public class PassengerContext : DbContext
     {
         private readonly SqlSettings _sqlSettings;
+        public DbSet<User> Users { get; set; }
         public PassengerContext(DbContextOptions<PassengerContext> options, SqlSettings sqlSettings) : base(options)
         {
             _sqlSettings = sqlSettings;

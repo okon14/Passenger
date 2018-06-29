@@ -26,7 +26,7 @@ namespace Passenger.Core.Domain
         {
             Id = userId;
             Email = email.ToLowerInvariant();
-            UserName = username;
+            SetUsername(username);
             Role = role;
             Password = password;
             Salt = salt;

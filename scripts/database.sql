@@ -9,9 +9,13 @@ CREATE TABLE Users (
     Salt NVARCHAR(200) NOT NULL,
     Username NVARCHAR(100) NOT NULL,
     FullName nvarchar(100),
-    Role NVARCHAR(10) not null,
-    CreatedAt DATETIME not null,
-    UpdatedAt DATETIME not null
+    Role NVARCHAR(100) not null,
+    CreatedAt DATETIME2 not null,
+    UpdatedAt DATETIME2 not null
 )
 
+drop TABLE Users
+
 select * from Users
+
+delete from Users
